@@ -1,4 +1,6 @@
 #!/bin/bash
+#made by imort
+#OS debian 8
 
 pip=`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`
 aptitude install -y racoon xl2tpd iptables
