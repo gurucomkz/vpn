@@ -120,6 +120,14 @@ spdadd 0.0.0.0/0 $pip[l2tp] udp -P in ipsec
         esp/transport//require;
 EOF
 
+cat << EOF > /etc/network/if-pre-up.d/iptables
+#!/bin/sh
+/sbin/iptables-restore < /etc/iptables.up.rules
+EOF
+
+/sbin/iptables-save > /etc/iptables.up.rules
+update-rc.d racoon defaults
+update-rc.d xl2tpd defaults
 
 /etc/init.d/setkey start
 /etc/init.d/racoon restart
