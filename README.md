@@ -1,6 +1,6 @@
 # vpn
 ```
 wget https://raw.githubusercontent.com/imorrt/vpn/master/vpnInstall.sh
-chown +x ./vpnInstall.sh
+chmod +x ./vpnInstall.sh
 ./vpnInstall.sh
 ```
