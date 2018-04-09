@@ -125,6 +125,7 @@ cat << EOF > /etc/network/if-pre-up.d/iptables
 /sbin/iptables-restore < /etc/iptables.up.rules
 EOF
 
+chmod +x /etc/network/if-pre-up.d/iptables
 /sbin/iptables-save > /etc/iptables.up.rules
 update-rc.d racoon defaults
 update-rc.d xl2tpd defaults
