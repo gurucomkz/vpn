@@ -1,8 +1,8 @@
 #!/bin/bash
 #made by imort
-#OS debian 8
+#OS debian 9
 
-pip=`ifconfig eth0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://'`
+pip=`ifconfig eth0 2>/dev/null|awk '/inet / {print $2}'`
 aptitude install -y racoon xl2tpd iptables
 lip="10.1.0.0"
 psk=`date +%s | sha256sum | base64 | head -c 20;`
@@ -90,7 +90,6 @@ cat << EOF > /etc/ppp/xl2tpd-options
 auth
 debug
 nodefaultroute
-lock
 proxyarp
 require-chap
 idle 18000
